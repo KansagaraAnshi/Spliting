@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Split App</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- WELCOME SCREEN -->
+<div class="screen" id="welcome">
+    <div class="container-card">
+        <h1 class="title">💰 Split App</h1>
+        <div class="button-row">
+            <button onclick="showScreen('login')">Login</button>
+            <button onclick="showScreen('signup')">Signup</button>
+        </div>
+    </div>
+</div>
+
+<!-- SIGNUP SCREEN -->
+<div class="screen" id="signup" style="display:none;">
+    <div class="container-card">
+        <h1 class="title">Signup</h1>
+        <input type="text" id="signup-name" placeholder="Name">
+        <input type="email" id="signup-email" placeholder="Email">
+        <input type="password" id="signup-password" placeholder="Password">
+        <button onclick="showScreen('dashboard')">Signup</button>
+        <p class="small-link" onclick="showScreen('login')">Already have an account? Login</p>
+    </div>
+</div>
+
+<!-- LOGIN SCREEN -->
+<div class="screen" id="login" style="display:none;">
+    <div class="container-card">
+        <h1 class="title">Login</h1>
+        <input type="email" id="login-email" placeholder="Email">
+        <input type="password" id="login-password" placeholder="Password">
+        <button onclick="showScreen('dashboard')">Login</button>
+        <p class="small-link" onclick="showScreen('signup')">Don't have an account? Signup</p>
+    </div>
+</div>
+
+<!-- DASHBOARD SCREEN -->
+<div class="screen" id="dashboard" style="display:none;">
+    <div class="container-card">
+        <h1 class="title">Dashboard</h1>
+        <div class="dashboard-grid">
+            <div class="card">
+                <h3>Balance</h3>
+                <p>$0.00</p>
+            </div>
+            <div class="card">
+                <h3>Upcoming Plans</h3>
+                <p>None</p>
+            </div>
+            <div class="card">
+                <h3>Transactions</h3>
+                <p>0</p>
+            </div>
+        </div>
+        <div class="button-row">
+            <button onclick="showScreen('instant-split')">Instant Split</button>
+            <button onclick="showScreen('food-split')">Food Split</button>
+            <button onclick="showScreen('group-split')">Group Split</button>
+        </div>
+    </div>
+</div>
+
+<!-- INSTANT SPLIT SCREEN -->
+<div class="screen" id="instant-split" style="display:none;">
+    <div class="container-card">
+        <h1 class="title">Instant Split</h1>
+        <input type="text" placeholder="Participant names comma separated" id="instant-names">
+        <input type="number" placeholder="Total Amount" id="instant-amount">
+        <div class="button-row">
+            <button onclick="calculateInstantSplit()">Even Split</button>
+            <button onclick="showManualSplit('instant')">Manual Split</button>
+        </div>
+        <div id="instant-manual-section" style="display:none;">
+            <h3>Manual Amounts</h3>
+            <div id="instant-manual-inputs"></div>
+            <button onclick="calculateManualSplit('instant')">Calculate Manual Split</button>
+        </div>
+        <ul id="instant-result" class="list"></ul>
+        <button onclick="showScreen('dashboard')">Back to Dashboard</button>
+    </div>
+</div>
+
+<!-- FOOD SPLIT SCREEN -->
+<div class="screen" id="food-split" style="display:none;">
+    <div class="container-card">
+        <h1 class="title">Food Split</h1>
+        <input type="text" placeholder="Participant names comma separated" id="food-names">
+        <input type="number" placeholder="Total Amount" id="food-amount">
+        <div class="button-row">
+            <button onclick="calculateFoodSplit()">Even Split</button>
+            <button onclick="showManualSplit('food')">Manual Split</button>
+        </div>
+        <div id="food-manual-section" style="display:none;">
+            <h3>Manual Amounts</h3>
+            <div id="food-manual-inputs"></div>
+            <button onclick="calculateManualSplit('food')">Calculate Manual Split</button>
+        </div>
+        <ul id="food-result" class="list"></ul>
+        <button onclick="showScreen('dashboard')">Back to Dashboard</button>
+    </div>
+</div>
+
+<!-- GROUP SPLIT SCREEN -->
+<div class="screen" id="group-split" style="display:none;">
+    <div class="container-card">
+        <h1 class="title">Group Split</h1>
+        <input type="text" placeholder="Transaction description" id="group-desc">
+        <input type="number" placeholder="Amount" id="group-amount">
+        <button onclick="addGroupTransaction()">Add Transaction</button>
+        <ul id="group-list" class="list"></ul>
+        <div class="button-row">
+            <button onclick="showScreen('create-group')">Create New Group</button>
+            <button onclick="showScreen('dashboard')">Back to Dashboard</button>
+        </div>
+    </div>
+</div>
+
+<!-- CREATE GROUP SCREEN -->
+<div class="screen" id="create-group" style="display:none;">
+    <div class="container-card">
+        <h1 class="title">Create Group</h1>
+        <input type="text" placeholder="Group Name" id="group-name">
+        <input type="text" placeholder="Add members (comma separated)" id="group-members">
+        <button onclick="showScreen('group-split')">Create Group</button>
+        <button onclick="showScreen('dashboard')">Back to Dashboard</button>
+    </div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>

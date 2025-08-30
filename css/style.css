@@ -1,0 +1,176 @@
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background: linear-gradient(135deg, #6C3BFF, #FFC857, #FF6F91);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+/* Smooth gradient animation */
+@keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+/* Screen container */
+.screen {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    padding: 30px 10px;
+}
+
+/* Card styling */
+.container-card {
+    background-color: rgba(255, 255, 255, 0.95);
+    width: 100%;
+    max-width: 520px;
+    padding: 35px 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+}
+
+/* Titles with gradient text */
+.title {
+    text-align: center;
+    font-size: 2em;
+    font-weight: 700;
+    background: linear-gradient(90deg, #6C3BFF, #FFC857, #FF6F91);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 25px;
+}
+
+/* Inputs */
+input[type="text"], input[type="email"], input[type="password"], input[type="number"] {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 18px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, input[type="number"]:focus {
+    outline: none;
+    border: 2px solid #6C3BFF;
+    box-shadow: 0 0 8px rgba(108, 59, 255, 0.3);
+}
+
+/* Buttons */
+button {
+    padding: 12px 20px;
+    width: 100%;
+    font-weight: 600;
+    font-size: 1em;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(90deg, #6C3BFF, #FFC857, #FF6F91);
+    color: #fff;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    margin-bottom: 12px;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+    filter: brightness(1.05);
+}
+
+/* Button row */
+.button-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+}
+
+/* Small link text */
+.small-link {
+    text-align: center;
+    color: #6C3BFF;
+    cursor: pointer;
+    margin-top: 12px;
+    font-weight: 500;
+}
+
+/* Dashboard grid */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.dashboard-grid .card {
+    background: linear-gradient(145deg, #FFC85720, #6C3BFF20);
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.dashboard-grid .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+/* Lists */
+ul.list {
+    list-style: none;
+    padding: 0;
+    margin-top: 12px;
+}
+
+ul.list li {
+    padding: 10px 15px;
+    background-color: rgba(255,200,87,0.2);
+    margin-bottom: 8px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+}
+
+ul.list li:hover {
+    background-color: rgba(255,200,87,0.3);
+}
+
+/* Manual input section */
+#instant-manual-section, #food-manual-section {
+    margin-top: 15px;
+}
+
+#instant-manual-section input, #food-manual-section input {
+    margin-bottom: 12px;
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+    .container-card {
+        padding: 25px 20px;
+    }
+    .title {
+        font-size: 1.6em;
+    }
+}
